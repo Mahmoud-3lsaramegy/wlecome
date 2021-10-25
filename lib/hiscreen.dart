@@ -1,10 +1,22 @@
-import 'dart:html';
-
+// Main lip of flutter
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
+import 'dart:io';
 
-class HI_Screen extends StatelessWidget {
+class HI_Screen extends StatefulWidget {
   const HI_Screen({Key? key}) : super(key: key);
+
+  @override
+  _HI_ScreenState createState() => _HI_ScreenState();
+}
+
+class _HI_ScreenState extends State<HI_Screen> {
+  int _click = 0;
+
+  void increes() {
+    setState(() {
+      _click++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +69,20 @@ class HI_Screen extends StatelessWidget {
                   ),
                 ),
               ),
+              Padding(
+                padding: EdgeInsets.only(
+                  top: 79.6,
+                ),
+                child: Center(
+                  child: Text(
+                    "${_click}",
+                    style: TextStyle(
+                      fontSize: 36,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
           Align(
@@ -69,7 +95,7 @@ class HI_Screen extends StatelessWidget {
               ),
               child: SizedBox(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: increes,
                   child: Text("LiKE"),
                   style: ButtonStyle(
                     backgroundColor:
@@ -87,19 +113,3 @@ class HI_Screen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-/*
-          Container(
-            color: const Color.fromARGB(200, 58, 53, 48),
-          ),
-          Column(
-            children: [Image.asset("images/clogo.png"
-            */
